@@ -56,13 +56,14 @@ captions = {
 
 col1, col2 = st.columns([1, 10])
 with col1:
-    st.image("./Iconeb Simulation/Simulation-re.png", width=50)
+    st.image("Simulation-re.png", width=50)   
 with col2:
     st.title(texts[lang]["title"])
 
-st.write(texts[lang]["intro"])
 
-st.image("./Iconeb Simulation/Anacaona.jpg", caption=captions[lang], width=400)
+st.write(texts[lang]["intro"])
+st.image("Anacaona.jpg", caption=captions[lang], width=400)
+
 
 # États socio-économiques de Léogâne
 etats = etats_translations[lang]
@@ -70,9 +71,10 @@ etats = etats_translations[lang]
 # --- Section Paramètres ---
 col1, col2 = st.sidebar.columns([1, 5])
 with col1:
-    st.image("./Iconeb Simulation/Parametre-re.png", width=30)
+    st.image("Parametre-re.png", width=30)
 with col2:
     st.header(texts[lang]["params"])
+
 
 # Population totale de Léogâne
 total_pop = st.sidebar.number_input("Population totale", min_value=100, value=26984, key="total_pop")
@@ -123,9 +125,10 @@ else:
 # Simulation
 col1, col2 = st.columns([1, 10])
 with col1:
-    st.image("./Iconeb Simulation/Augmentation-re.png", width=40)
+    st.image("Augmentation-re.png", width=40)
 with col2:
     st.subheader(texts[lang]["analysis"])
+
 
 n = st.sidebar.slider("Nombre de périodes", 1, 20, 5)
 resultats = [etat_initial]
@@ -143,17 +146,19 @@ st.altair_chart(chart_evolution)
 # Résultats
 col1, col2 = st.columns([1, 10])
 with col1:
-    st.image("./Iconeb Simulation/List-re.png", width=40)
+    st.image("List-re.png", width=40)
 with col2:
     st.subheader(texts[lang]["results"])
 st.dataframe(df)
 
+
 # Distribution finale
 col1, col2 = st.columns([1, 10])
 with col1:
-    st.image("./Iconeb Simulation/Simulation-re.png", width=40)
+    st.image("Simulation-re.png", width=40)   
 with col2:
     st.subheader(texts[lang]["final"])
+
 
 df_final = df.iloc[-1].reset_index()
 df_final.columns = ["État", "Population"]
